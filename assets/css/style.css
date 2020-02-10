@@ -19,7 +19,7 @@
    --colorBlackLight: #2e2e2e;
    --colorGrey: #e1e1e1;
    --colorDarkGrey: #919191;
-   --redColor: #e3342f;
+   --redColor: #f02d2d;
    --greenColor: #28a745;
    --blueColor: #21b4ff;
 }
@@ -39,6 +39,7 @@ body, html{
 .leftPane{
     text-align: center;
     margin-top: 90px;
+    padding: 0 15px;
     width: 100%;
 }
 
@@ -62,7 +63,6 @@ body, html{
     width: 70%;
 }
 
-/*#008cfd*/
 .smallCircle{
     border: 50px solid #8cc63e;
     border-radius: 50%;
@@ -71,8 +71,8 @@ body, html{
     position: fixed;
     bottom: -100px;
     left: -100px;
-
 }
+
 .bigCircle{
     border: 80px solid #008cfd;
     border-radius: 50%;
@@ -125,12 +125,14 @@ body, html{
 #form {
     margin-top: 70px;
     display: flex;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
+    height: max-content;
 }
 
 .form-section {
     width: 435px;
     border: 1px solid #f7f7f7;
+    margin: 0 50px 0 20px;
     border-radius: 6px;
     padding: 15px 50px;
     background-color: var(--colorWhite);
@@ -209,6 +211,55 @@ body, html{
     background-color: var(--blueColor);
 }
 
+.input-error{
+    font-size: 11px;
+    color: var(--redColor);
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    padding: 0 4px;
+}
+
+.group.error .control:focus + .form-icon + .group-line{
+    border-bottom-color: var(--redColor);
+}
+
+.group.error .group-line{
+    border-bottom-color: var(--redColor);
+}
+
+.group.error .form-icon{
+    color: var(--redColor);
+}
+
+.group.error .form-icon:after{
+    background-color: var(--redColor);
+}
+
+.group.error .control::placeholder{
+    color: var(--redColor);
+}
+
+.group.valid .control:focus + .form-icon + .group-line{
+    border-bottom-color: var(--greenColor);
+}
+
+.group.valid .group-line{
+    border-bottom-color: var(--greenColor);
+}
+
+.group.valid .form-icon{
+    color: var(--greenColor);
+}
+
+.group.valid .form-icon:after{
+    background-color: var(--greenColor);
+}
+
+.group.valid .control::placeholder{
+    color: var(--greenColor);
+}
+
 .group-bottom{
     display: flex;
     font-size: 12px;
@@ -274,20 +325,9 @@ body, html{
     text-decoration: none;
 }
 
-.forgotPassword {
-    position: absolute;
-    top: 0;
-    right: 0;
+input#email.control{
+    
 }
-
-.forgotPassword a {
-    text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    color: #434C5E;
-}
-
 
 /* ======
 
@@ -295,14 +335,65 @@ body, html{
 
 ====== */
 
-@media (max-width: 765px){
-     
-    .form--header h2 {
-        font-size: 2.5rem;
+@media (max-width: 1140px){
+    .bigCircle{
+        right: -415px;
     }
 
+    .leftPane{
+        margin-top: 65px;
+    }
+
+    .leftPane h1{
+        margin-bottom: 35px;
+    }
+
+    .leftPane p{
+        white-space: pre-wrap;
+    }
+}
+
+@media (max-width: 890px){
+     
+    .leftPane{
+        display: none;
+    }
+
+    .smallCircle{
+        z-index: -1;
+    }
+
+    .rightPane {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        padding: 0 15px;
+    }
+
+    .form-section{
+        margin: 0;
+    }
+
+}
+
+@media (max-width: 490px){
     .form-section {
         width: 100%;
     }
+}
 
+@media (max-width: 395px){
+    .form-icon{
+        display: none;
+    }
+}
+
+@media (max-width: 375px){
+    .form-section {
+        padding: 15px 30px;
+    }
+
+    .group-bottom{
+
+    }
 }
